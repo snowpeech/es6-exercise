@@ -1,0 +1,70 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id = "text">
+            
+
+        </div>
+
+        
+        <script>
+            class Animal{
+                constructor(firstName, lastName, age){
+                    this._firstName = firstName;
+                    this._lastName = lastName;
+                    this._age = age;
+                }
+                name() {
+                    return `${this._firstName} ${this._lastName}`;
+                }
+            }
+            
+
+            class Human extends Animal{
+                constructor(firstName, lastName, age){
+                    super(firstName, lastName, age);
+                    this._genus = "homo";
+                }
+
+                name(firstName,lastName){
+                    return super.name(firstName,lastName);
+                }
+
+                speak(){
+                    return  `My name is ${firstName} ${lastName}`
+                }
+
+
+            }
+
+            class Dog extends Animal {
+                constructor(firstName, lastName, age){
+                    super(firstName, lastName, age);
+                    this._genus = "canis";
+                }
+
+                // name(firstName,lastName){
+                //     return super.name(firstName,lastName);
+                // }
+
+                speak(){
+                    return "woof woof woof"
+                }
+            }
+            
+            var bob = new Human('bob','smith',5); 
+            bob.name;
+
+            var fido = new Dog('Echo','Louder',9);
+            fido.speak();
+            fido.name;
+            fido.genus;
+            fido.age;
+
+            var pig = new Animal("bacon", "yums",2);
+            pig.name();
+        </script>
+    </body>
+</html>
