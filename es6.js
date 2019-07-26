@@ -57,28 +57,39 @@ var fruits = [banana,apple,peach];
 var fruitNames = fruits.map( fruit => fruit.name);
 
 //EX 7 Unique values
-var arr1 = ['one', 'two', 'three', 'four', 'one', 'four', 'three'];
+var arr1 = ['one', 'two', 'three', 'four', 'one', 'four', 'three','five'];
 
-var arr2 = new Set(arr1); //returns ['two'];
-//https://www.w3resource.com/javascript-exercises/javascript-array-exercise-20.php
-// function getUnique(arra1) {
-//         var object = {};
-//         var result = [];
+// var arr2 = new Set(arr1); //returns ['two'];
+function find_duplicate_in_array(arra1) {
+  const object = {};
+  const result = [];
 
-//         arra1.forEach(function (item) {
-//           if(!object[item])
-//               object[item] = 0;
-//             object[item] += 1;
-//         })
+  arra1.forEach(item => {
+    if(!object[item])
+        object[item] = 0;
+      object[item] += 1;
+  })
 
-//         for (var prop in object) {
-//            if(object[prop] >= 2) {
-//                result.push(prop);
-//            }
-//         }
-//         return result;
-//     }
-    
+  for (const prop in object) {
+     if(object[prop] >= 2) {
+         result.push(prop);
+     }
+  }
+  return result;
+}
+var dupes = find_duplicate_in_array(arr1);
+
+function findUnique(arr1, dupe){
+  var ansArr = [];
+  for(let i =0; i<=arr1.length; i++){
+    if (dupes.indexOf(arr1[i]) < 0){
+      ansArr.push(arr1[i]);
+    }; 
+  }; 
+  return ansArr;
+}
+
+console.log(findUnique(arr1, dupes));
 
 //EX 8 Using classes and object oriented principles to create objects
 // for the items defined below and show appropriate relationships for 
