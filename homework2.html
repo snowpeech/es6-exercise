@@ -21,7 +21,7 @@
             //Ex 2
 
             let todoList = {
-                todoItems: [],
+                todoItems: ["one","two","three"],
                 addItem( description ) {
                     this.todoItems.push( { description, done: false } );
                     return this;
@@ -52,19 +52,21 @@
             }
             
             let it = errorDemo();
+             
+            //console.log( it.next() );
+            //Object {value: 1, done: false} - the value of the first yield is "1" but there are more results to yield, therefore done: false;
             
-            // Execute one statement at a time to avoid
-            // skipping lines after the first thrown error.
+            // console.log(it.next() );
+            // throws the error message: "Error yielding the next result" - the next line in error demo
             
-            console.log( it.next() );
-            
-            console.log( it.next() );
-            
-            console.log( [...errorDemo()] );
+            // console.log([...errorDemo()] );
+            // still stuck on error message because error wasn't handled
             
             for ( let element of errorDemo() ) {
                 console.log( element );
             }
+
+            //will return the first and second lines of previous console.log messages
         </script>
     </body>
 </html>
